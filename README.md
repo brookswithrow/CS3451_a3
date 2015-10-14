@@ -79,9 +79,11 @@ uniform mat4 u_worldViewProjection;
 uniform vec3 u_lightWorldPos;
 uniform mat4 u_world;
 uniform mat4 u_viewInverse;
-uniform mat4 u_worldInverseTranspose;```
+uniform mat4 u_worldInverseTranspose;
+```
 and in the fragment shader they are:
-```uniform vec4 u_lightColor;
+```
+uniform vec4 u_lightColor;
 uniform vec4 u_colorMult;
 uniform vec4 u_specular;
 uniform float u_shininess;
