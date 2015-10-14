@@ -74,15 +74,17 @@ var onLoad = function (mesh: loader.Mesh) {
   // the vertex array and the triangle array are different lengths.
   // we need to create new arrays that are not nested
   // - position: 3 entries per vertex (x, y, z)
-  // - normals: 3 entries per vetex (x, y, z), the normal of the corresponding vertex 
-  // - colors: 3 entries per 
+  // - normals: 3 entries per vertex (x, y, z), the normal of the corresponding vertex 
+  // - colors: 4 entries per vertex (r, g, b, a), in the range 0-255
   // - indices: 3 entries per triangle, each being an index into the vertex array. 
   var numVerts = mesh.v.length;
   var numTris = mesh.t.length;
 
+  // GOAL: you need to fill in these arrays with the data for the vertices! 
   var position = [];
   var color = [];
   var normal = [];
+  // this is where you put the triangle vertex list
   var indices = [];
     
   //////////////
@@ -249,7 +251,9 @@ function main(gl: WebGLRenderingContext, program: WebGLProgram) {
   var attribSetters  = createAttributeSetters(gl, program);
 
   /// ***************
-  /// YOU WILL REMOVE THIS AND REPLACE WITH A MESH YOU LOAD
+  /// This code creates the initial 3D "F".  You can look here for guidance on what some of the elements
+  /// of the "object" are, and may want to use the debugger to look at the content of the fields of the "arrays" 
+  /// object returned from f3d.createArrays(gl) 
   var arrays = f3d.createArrays(gl);
   var bb1 = vec3.fromValues(100, 150, 30);
   var bb2 = vec3.fromValues(0, 0, 0);
